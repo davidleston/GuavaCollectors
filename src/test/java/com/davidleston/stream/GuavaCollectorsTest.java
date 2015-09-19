@@ -94,7 +94,7 @@ public class GuavaCollectorsTest {
   @Test
   public void immutableRangeMap() {
     ImmutableRangeMap<String, String> map = Stream.of("a")
-        .collect(GuavaCollectors.immutableRangeMap(s -> Range.open("a", "z")));
+        .collect(GuavaCollectors.immutableRangeMap(s -> Range.open("a", "z"), Function.<String>identity()));
     assertThat(map.get("c")).isEqualTo("a");
   }
 
